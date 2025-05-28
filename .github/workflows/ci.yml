@@ -1,0 +1,33 @@
+name: ip-lookup
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+    branches: [ main, develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checking out code
+        uses: actions/checkout@v4
+
+      - name: Setting up node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Installing dependencies
+        run: npm ci
+
+      - name: Run eslint
+        run: npm run lint
+
+      - name: Testing
+        run: npm run test --testTimeout=5000
+
+      - name: Building
+        run: npm run build
