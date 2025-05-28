@@ -1,4 +1,4 @@
-name: ip-locator
+name: ip-lookup
 
 on:
   push:
