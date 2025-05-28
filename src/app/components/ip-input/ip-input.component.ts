@@ -56,6 +56,10 @@ export class IpInputComponent implements AfterViewInit, OnDestroy {
     }
 
     onChange(ip: string) {
+        if (!this.control.touched) {
+            this.control.markAsTouched();
+        }
+
         if (this.control.invalid) {
             return;
         }
