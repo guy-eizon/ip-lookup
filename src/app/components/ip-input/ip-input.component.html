@@ -7,11 +7,11 @@
 <app-spinner *ngIf="(loading$ | async)" [dimension]="20"></app-spinner>
 
 <div *ngIf="control.hasError" class="error {{(shakeInputStream | async) ? 'shake' : 'shook'}}">
-    <span *ngIf="requiredError()" >Required</span>
+    <span *ngIf="requiredError()">Required</span>
     <span *ngIf="invalidError()">{{ control.errors?.[INVALID_IP_ERROR_KEY] }}</span>
 </div>
 
 <div *ngIf="!(loading$ | async) && countryCode && !control.errors" class="country-details">
-        <img class="country-flag" [src]="getFlagSrc()" [alt]="countryCode">
-        <span class="country-time"> {{ countryTime$ | async }} </span>
+    <img class="country-flag" [src]="getFlagSrc()" [alt]="countryCode">
+    <span class="country-time"> {{ countryTime$ | async }} </span>
 </div>
