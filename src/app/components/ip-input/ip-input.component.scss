@@ -1,0 +1,84 @@
+$input-width: 68%;
+
+:host {
+  display: flex;
+  align-items: center;
+  margin: 0 8px;
+  width: 100%;
+  position: relative;
+}
+
+.input {
+  flex-grow: 0;
+  width: $input-width;
+  border: 1px solid rgb(199, 199, 199);
+  border-radius: 3px;
+  padding: 4px 8px;
+
+  &:disabled {
+    color: rgb(206, 206, 206);
+  }
+}
+
+app-spinner {
+  margin-left: 8px;
+}
+
+.error {
+  color: red;
+  font-size: 10px;
+  position: absolute;
+  top: 100%
+}
+
+.country-details {
+  width: 95%-$input-width;
+  display: flex;
+  align-items: center;
+
+  .country-flag {
+    margin: 0 12px;
+    width: 28px;
+    height: 18px;
+    border-radius: 2px;
+  }
+
+  .country-time {
+    margin: 0;
+    display: flex;
+  }
+}
+
+@mixin moveInX($movement) {
+  transform: translateX($movement);
+}
+
+@keyframes shake {
+  $movement: 5px;
+  $move-right: $movement;
+  $move-left: -$movement;
+  $center: 0;
+
+  0% {
+    @include moveInX($center);
+  }
+  20% {
+    @include moveInX($move-right);
+  }
+  40% {
+    @include moveInX($move-left);
+  }
+  60% {
+    @include moveInX($move-right);
+  }
+  80% {
+    @include moveInX($move-left);
+  }
+  100% {
+    @include moveInX($center);
+  }
+}
+
+.shake {
+  animation: shake 0.5s;
+}

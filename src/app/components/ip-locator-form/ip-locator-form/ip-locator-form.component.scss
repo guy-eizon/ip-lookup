@@ -1,0 +1,82 @@
+@mixin separator($side: bottom) {
+  border-#{$side}: 1px solid rgb(224, 224, 224);
+}
+
+:host {
+  inset: 0;
+  display: flex;
+  position: absolute;
+  align-items: start;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.form-backdrop {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+}
+
+.wrapper {
+  $padding-sides: 20px;
+
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+  margin: 50px;
+  padding-bottom: 20px;
+  border-radius: 6px;
+  width: 500px;
+  min-height: 280px;
+  background-color: white;
+  z-index: 1000;
+
+  .header {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px $padding-sides;
+    @include separator('bottom');
+  }
+
+  .body {
+    display: flex;
+    color: rgb(91, 91, 91);
+    flex-direction: column;
+    padding: 20px $padding-sides;
+
+    .instructions {
+      margin-bottom: 20px;
+    }
+  }
+
+  .inputs-wrapper {
+    margin-top: 16px;
+    @include separator('top');
+
+    max-height: 45vh;
+    overflow-y: auto;
+
+    .input-row {
+      display: flex;
+      justify-self: auto;
+      align-items: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+
+      .ip-input-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: rgba(229, 229, 229);
+      }
+    }
+  }
+}

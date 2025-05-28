@@ -1,0 +1,48 @@
+$medium-gap: 8px;
+
+@mixin brighten($amount: 10%) {
+  filter: brightness(100% + $amount);
+  transition: filter 0.1s ease-in-out;
+}
+
+@mixin darken($amount: 10%) {
+  filter: brightness(100% - $amount);
+  transition: filter 0.1s ease-in-out;
+}
+
+:host {
+  padding: $medium-gap/4 $medium-gap * 2;
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+  justify-items: center;
+  font-size: 14px;
+  border-radius: 4px;
+  align-self: start;
+  height: 26px;
+
+  &.theme {
+    &-gray {
+      background-color: lightgray;
+      color: black;
+    }
+
+    &-blue {
+      background-color: rgb(37, 214, 251);
+      color: white;
+    }
+  }
+
+  &:hover {
+    @include brighten();
+  }
+
+  &:active {
+    @include darken();
+  }
+}
+
+app-icon {
+  font-size: 16px;
+  margin-right: $medium-gap;
+}

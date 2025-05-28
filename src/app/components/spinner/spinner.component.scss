@@ -1,0 +1,16 @@
+
+:host {
+  border: 2px dashed rgb(47, 47, 47);
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

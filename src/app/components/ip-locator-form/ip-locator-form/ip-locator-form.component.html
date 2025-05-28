@@ -1,0 +1,28 @@
+<div class="form-backdrop"></div>
+<div class="wrapper">
+    <div class="header">
+        IP Lookup
+        <app-icon class="close-icon" [icon]="IconType.X" [hoverable]="true" (click)="close.emit()"></app-icon>
+    </div>
+    <form [formGroup]="form" class="body">
+        <div class="instructions">Enter one or more IP addresses and get their country</div>
+        <app-button (click)="addInput()"
+                    [icon]="IconType.PLUS"
+                    [theme]="ButtonTheme.Blue"
+                    class="add-button">
+            Add
+        </app-button>
+        <div class="inputs-wrapper" formArrayName="ips">
+            <div *ngFor="let control of ipList.controls; let i = index" [formGroupName]="i" class="input-row">
+                <div class="ip-input-number">
+                    {{ i + 1 }}
+                </div>
+                <app-ip-input [id]="getInputId(i)"
+                              [control]="getControl(i)"
+                              (rendered)="newInputRendered(i)"
+                              [shakeInputStream]="shakeInvalidInputs$">
+                </app-ip-input>
+            </div>
+        </div>
+    </form>
+</div>
