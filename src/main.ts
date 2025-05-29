@@ -20,7 +20,8 @@ import {ButtonTheme} from "./app/components/button/typings";
                     (click)="openIpLocator()">
             IP Lookup
         </app-button>
-        <app-ip-locator-form *ngIf="dialogMode" (close)="closeIpLocator()">
+        <app-ip-locator-form *ngIf="dialogMode"
+                             (close)="closeIpLocator()">
         </app-ip-locator-form>
     `,
 })
