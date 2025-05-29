@@ -20,6 +20,7 @@
                 <app-ip-input [id]="getInputId(i)"
                               [control]="getControl(i)"
                               (rendered)="newInputRendered(i)"
+                              (validInput)="onValidInput(i)"
                               [shakeInputStream]="shakeInvalidInputs$">
                 </app-ip-input>
             </div>

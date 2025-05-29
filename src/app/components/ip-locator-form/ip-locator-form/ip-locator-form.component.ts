@@ -64,6 +64,14 @@ export class IpLocatorFormComponent {
         inputElement.querySelector('input').focus();
     }
 
+    onValidInput(index: number) {
+        if (this.ipList.controls.length - 1 !== index) {
+            return;
+        }
+
+        this.addInput();
+    }
+
     getInputId(index: number) {
         return `input-${index}`;
     }
