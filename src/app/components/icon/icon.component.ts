@@ -11,5 +11,5 @@ import {NgClass} from "@angular/common";
 })
 export class IconComponent {
     @Input() icon: IconType;
-    @Input() hoverable = false;
+    @Input() clickable = false;
 }

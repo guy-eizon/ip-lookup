@@ -23,21 +23,21 @@ describe('IconComponent', () => {
         expect(hasClassOnIconElement(IconType.PLUS)).toBe(true);
     });
 
-    describe(`"hoverable" @Input`, () => {
-        const hoverableClass = 'hoverable';
+    describe(`"clickable" @Input`, () => {
+        const clickableClass = 'clickable';
 
-        it(`should have 'hoverable' when "true"`, () => {
-            component.hoverable = true;
+        it(`should have 'clickable' when "true"`, () => {
+            component.clickable = true;
             fixture.detectChanges();
 
-            expect(hasClassOnIconElement(hoverableClass)).toBe(true);
+            expect(hasClassOnIconElement(clickableClass)).toBe(true);
         });
 
-        it(`should NOT have 'hoverable' when "false"`, () => {
-            component.hoverable = false;
+        it(`should NOT have 'clickable' when "false"`, () => {
+            component.clickable = false;
             fixture.detectChanges();
 
-            expect(hasClassOnIconElement(hoverableClass)).toBe(false);
+            expect(hasClassOnIconElement(clickableClass)).toBe(false);
         });
 
     });

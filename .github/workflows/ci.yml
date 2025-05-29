@@ -15,7 +15,7 @@ jobs:
       - name: Checking out code
         uses: actions/checkout@v4
 
-      - name: Setting up node.js
+      - name: Installing node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -23,7 +23,7 @@ jobs:
       - name: Installing dependencies
         run: npm ci
 
-      - name: Run eslint
+      - name: linting
         run: npm run lint
 
       - name: Testing

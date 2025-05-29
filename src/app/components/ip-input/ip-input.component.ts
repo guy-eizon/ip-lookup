@@ -31,6 +31,7 @@ export class IpInputComponent implements AfterViewInit, OnDestroy {
     @Input() shakeInputStream: Observable<boolean>;
 
     @Output() rendered = new EventEmitter<void>();
+    @Output() validInput  = new EventEmitter<void>();
 
     constructor(private ipLocatorService: IpLocatorService) {
     }
@@ -78,6 +79,7 @@ export class IpInputComponent implements AfterViewInit, OnDestroy {
             .pipe(
                 tap((ipData: any) => {
                     this.setCountryDetails(ipData);
+                    this.validInput.emit();
                 }),
                 catchError((err: string) => {
                     this.control.setErrors({[this.INVALID_IP_ERROR_KEY]: err});
