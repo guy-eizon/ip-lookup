@@ -16,5 +16,5 @@ export class ButtonComponent {
     @Input()
     @HostBinding('class') theme: ButtonTheme;
 
-    @HostBinding('class.hoverable') hoverable = true;
+    @HostBinding('class.clickable') clickable = true;
 }

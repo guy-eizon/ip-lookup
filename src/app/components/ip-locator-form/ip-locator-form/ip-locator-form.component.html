@@ -2,7 +2,7 @@
 <div class="wrapper">
     <div class="header">
         IP Lookup
-        <app-icon class="close-icon" [icon]="IconType.X" [hoverable]="true" (click)="close.emit()"></app-icon>
+        <app-icon class="close-icon" [icon]="IconType.X" [clickable]="true" (click)="close.emit()"></app-icon>
     </div>
     <form [formGroup]="form" class="body">
         <div class="instructions">Enter one or more IP addresses and get their country</div>

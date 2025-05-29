@@ -1,5 +1,15 @@
 @import 'normalize.css';
 
+@mixin brighten($amount: 10%) {
+  filter: brightness(100% + $amount);
+  transition: filter 0.1s ease-in-out;
+}
+
+@mixin darken($amount: 10%) {
+  filter: brightness(100% - $amount);
+  transition: filter 0.1s ease-in-out;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -17,6 +27,14 @@ app-root {
   min-height: 25vh;
 }
 
-.hoverable {
+.clickable {
   cursor: pointer;
+
+  &:hover {
+    @include brighten();
+  }
+
+  &:active {
+    @include darken();
+  }
 }
